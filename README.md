@@ -3,6 +3,49 @@
 Vue 3 前端 + Spring Boot 后端的课程实训项目。前台是手机端商城（首页 / 分类 / 详情 / 购物车 / 我的），
 后台是商品管理系统（登录 / 数据概览 / 商品管理 / 分类统计）。
 
+## 界面预览
+
+<p align="center">
+  <img src="docs/screenshots/home.jpg" width="24%" alt="首页" />
+  <img src="docs/screenshots/category.jpg" width="24%" alt="分类" />
+  <img src="docs/screenshots/detail.jpg" width="24%" alt="商品详情" />
+  <img src="docs/screenshots/cart.jpg" width="24%" alt="购物车" />
+</p>
+<p align="center"><sub>前台商城 · 首页 / 分类 / 商品详情 / 购物车</sub></p>
+
+<p align="center">
+  <img src="docs/screenshots/admin-home.jpg" width="47%" alt="后台数据概览" />
+  <img src="docs/screenshots/admin-goods.jpg" width="47%" alt="后台商品管理" />
+</p>
+<p align="center"><sub>后台管理（独立入口 /admin/）· 数据概览 / 商品管理</sub></p>
+
+## 功能清单
+
+**前台商城**
+
+| 模块 | 功能 |
+|---|---|
+| 首页 | 关键词搜索、分类快捷入口、轮播图、在售商品瀑布流 |
+| 分类 | 左侧 5 个分类切换，右侧商品列表，带分类参数跳转 |
+| 商品详情 | 图片价格库存展示、收藏、加入购物车、立即购买 |
+| 购物车 | 单选/全选、数量加减、删除、实时合计、选择收货地址结算 |
+| 消息 | 下单后自动生成订单消息、未读角标 |
+| 我的 | 登录注册、订单列表/详情、收藏、地址管理、账号设置 |
+
+**后台管理**
+
+| 模块 | 功能 |
+|---|---|
+| 登录 | 账号密码校验，签发令牌，路由守卫拦截未登录访问 |
+| 数据概览 | 商品总数、在售/下架、库存告警、分类分布等 6 项统计 |
+| 商品管理 | 搜索筛选、新增/编辑/删除、上下架、图片选择、恢复默认 |
+| 分类统计 | 5 个分类的商品数与库存明细 |
+
+**服务端**
+
+商品 CRUD、分类白名单校验、重名校验、价格精度处理（BigDecimal）、
+局部更新、统一错误响应、HMAC 令牌鉴权、初始数据自动灌入。
+
 ## 技术栈
 
 | 层 | 技术 |
