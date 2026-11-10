@@ -1,0 +1,51 @@
+server:
+  # 8080 常被其他项目（如 taobao-analysis 后端）占用，这里固定用 8090
+  port: 8090
+  # 统一 UTF-8，避免中文商品名乱码
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: shop-server
+
+  # H2 文件数据库：不用装 MySQL，重启后数据还在
+  # MODE=MySQL 让 SQL 语法尽量贴近 MySQL，将来换库改动小
+  datasource:
+    url: jdbc:h2:file:./data/shopdb;MODE=MySQL;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      # 自动建表/改表，课程项目足够；生产应换成 Flyway 脚本
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+
+  # 浏览器访问 http://localhost:8080/h2-console 可直接看表
+  # JDBC URL 填上面的 url，用户名 sa，密码空
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# ===== 自定义配置 =====
+shop:
+  admin:
+    username: admin
+    password: admin123
+  token:
+    # 生产环境务必改成环境变量注入
+    secret: cjy-shop-2026-secret-key-change-me
+    ttl-minutes: 720
+
+logging:
+  level:
+    com.cjy.shop: INFO
